@@ -51,8 +51,7 @@ RSS 与 Atom XML 都经过严格解析验证。
 
 ## 验证
 
-`src/content/posts/content-pipeline-fixture.mdx` 是面向用户的完整示例，也是构建回归
-夹具。运行以下命令验证内容管线：
+仓库不保留可发布的 Demo 文章。运行以下命令验证内容管线和站点构建：
 
 ```bash
 pnpm test
@@ -61,5 +60,4 @@ pnpm type-check
 pnpm build
 ```
 
-`pnpm build` 会额外检查夹具页面、RSS 和 Atom 的静态内容、XML、安全属性、绝对
-URL、Wiki 封面和链接分类是否一致。
+写作所需的最小语法示例见 `docs/WRITING_REFERENCE.md`。

@@ -1,8 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { describe, it } from "node:test";
-import { fileURLToPath } from "node:url";
-import sharp from "sharp";
 
 const bannerSource = await readFile(
 	new URL("../src/components/layout/Banner.astro", import.meta.url),
@@ -86,20 +84,10 @@ describe("Default image loading boundary", () => {
 		);
 	});
 
-	it("ships player-sized local music covers while leaving remote covers dynamic", async () => {
-		assert.equal((musicConstants.match(/\.webp\?url/g) ?? []).length, 4);
-		assert.match(musicConstants, /cover: dazbeeCover/);
+	it("does not ship Demo music covers when the local playlist is empty", () => {
+		assert.doesNotMatch(musicConstants, /\.webp\?url/);
+		assert.match(musicConstants, /LOCAL_PLAYLIST:\s*Song\[\]\s*=\s*\[\]/);
 		assert.doesNotMatch(musicCoverSource, /fetchpriority="high"/);
-
-		for (const name of ["cl", "dazbee", "hitori", "xryx"]) {
-			const path = new URL(
-				`../src/assets/music/cover/${name}.webp`,
-				import.meta.url,
-			);
-			const metadata = await sharp(fileURLToPath(path)).metadata();
-			assert.ok((metadata.width ?? Number.POSITIVE_INFINITY) <= 192);
-			assert.ok((metadata.height ?? Number.POSITIVE_INFINITY) <= 192);
-		}
 	});
 
 	it("keeps existing default-image mirrors synchronized with public files", async () => {

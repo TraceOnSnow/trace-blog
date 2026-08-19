@@ -249,10 +249,8 @@ class MusicPlayerStore {
 
 	private async loadPlaylist(): Promise<void> {
 		const mode = musicPlayerConfig.mode ?? "meting";
-		const meting_api =
-			musicPlayerConfig.meting_api ??
-			"https://www.bilibili.uno/api?server=:server&type=:type&id=:id&auth=:auth&r=:r";
-		const meting_id = musicPlayerConfig.id ?? "14164869977";
+		const meting_api = musicPlayerConfig.meting_api ?? "";
+		const meting_id = musicPlayerConfig.id ?? "";
 		const meting_server = musicPlayerConfig.server ?? "netease";
 		const meting_type = musicPlayerConfig.type ?? "playlist";
 

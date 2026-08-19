@@ -80,18 +80,12 @@ importers:
       katex:
         specifier: ^0.16.47
         version: 0.16.47
-      l2d-widget:
-        specifier: ^0.1.0
-        version: 0.1.0
       marked:
         specifier: ^18.0.7
         version: 18.0.7
       node-html-parser:
         specifier: ^8.0.4
         version: 8.0.4
-      oddmisc:
-        specifier: ^1.2.8
-        version: 1.2.8
       overlayscrollbars:
         specifier: ^2.16.0
         version: 2.16.0
@@ -3512,9 +3506,6 @@ packages:
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
 
-  l2d-widget@0.1.0:
-    resolution: {integrity: sha512-vnEZeom+u/GlcZJeZt1gsigXIsGCHzW+WAWRqv93gG5MqVSRg749drD34mMXhSr48jvrUW+HvufWxURXg93jXQ==}
-
   launder@1.7.1:
     resolution: {integrity: sha512-mU6WRz5EusL9ZZuiZ5SO4Y6C0P9PAUR9iwdb6bzj4KDihm28DiHFw+/yk9DBH4f+Pv1wuzQ4e2jV3oQ7mkIqvw==}
 
@@ -4050,9 +4041,6 @@ packages:
   obug@2.1.4:
     resolution: {integrity: sha512-4a+OsYv9UktOJKE+l1A4OufDgdRF9PifWj+tJnHURo/P+WOxpG4GzUFL9qCalmWauao6ogiG+QvnCovwPoyAWA==}
     engines: {node: '>=12.20.0'}
-
-  oddmisc@1.2.8:
-    resolution: {integrity: sha512-6lOr3pOSlpvakgUn5BGS5pt4mRwzISPojHd+C7UTF3+7hl/xYV0zBqGs+wtz98uAlmy3qe+pYsEV3qeS4zLRXQ==}
 
   ofetch@1.5.1:
     resolution: {integrity: sha512-2W4oUZlVaqAPAil6FUg/difl6YhqhUR7x2eZY4bQCko22UXg3hptq9KLQdqFClV+Wu85UX7hNtdGTngi/1BxcA==}
@@ -9367,8 +9355,6 @@ snapshots:
 
   kolorist@1.8.0: {}
 
-  l2d-widget@0.1.0: {}
-
   launder@1.7.1:
     dependencies:
       dayjs: 1.11.21
@@ -10178,8 +10164,6 @@ snapshots:
       object-keys: 1.1.1
 
   obug@2.1.4: {}
-
-  oddmisc@1.2.8: {}
 
   ofetch@1.5.1:
     dependencies:

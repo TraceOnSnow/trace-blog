@@ -22,13 +22,20 @@ const initialLayoutClass = defaultLayout === "grid" ? "grid-mode" : "list-mode";
 	data-both-sidebars={hasRightSidebars}
 >
 	{
-		page.data.map((entry, index) => (
-			<PostCard
-				entry={entry}
-				class:list="onload-animation"
-				style={`--i: ${index}; --interval: 50ms;`}
-			/>
-		))
+		page.data.length > 0 ? (
+			page.data.map((entry, index) => (
+				<PostCard
+					entry={entry}
+					class:list="onload-animation"
+					style={`--i: ${index}; --interval: 50ms;`}
+				/>
+			))
+		) : (
+			<div class="card-base px-8 py-12 text-center">
+				<h1 class="text-xl font-bold text-90 mb-3">文章正在整理中</h1>
+				<p class="text-60">这里将发布技术文章、项目记录与长期思考。</p>
+			</div>
+		)
 	}
 </div>
 

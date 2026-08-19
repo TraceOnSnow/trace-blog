@@ -4,9 +4,6 @@ import type { CollectionEntry } from "astro:content";
 import { commentConfig } from "@/config";
 import { removeFileExtension } from "@/utils/url-utils";
 
-import Giscus from "./Giscus.astro";
-import Twikoo from "./Twikoo.astro";
-
 interface Props {
 	post?: CollectionEntry<"posts">;
 	path?: string;
@@ -29,14 +26,20 @@ if (commentConfig?.enable) {
 }
 
 const commentEnabled = post ? (post.data.comment ?? true) : true;
+const CommentService =
+	commentConfig.enable && commentEnabled && path
+		? commentService === "twikoo"
+			? (await import("./Twikoo.astro")).default
+			: commentService === "giscus"
+				? (await import("./Giscus.astro")).default
+				: null
+		: null;
 ---
 
 {
-	commentConfig?.enable && commentEnabled && path && (
+	CommentService && (
 		<div class="card-base p-6 mb-4">
-			{commentService === "twikoo" && <Twikoo path={path} />}
-			{commentService === "giscus" && <Giscus path={path} />}
-			{commentService === "" && null}
+			<CommentService path={path} />
 		</div>
 	)
 }

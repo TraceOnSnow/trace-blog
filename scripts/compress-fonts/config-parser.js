@@ -126,10 +126,8 @@ export function getMusicConfig() {
 
 	return {
 		mode: extract("mode") || "meting",
-		meting_api:
-			extract("meting_api") ||
-			"https://www.bilibili.uno/api?server=:server&type=:type&id=:id&auth=:auth&r=:r",
-		id: extract("id") || "14164869977",
+		meting_api: extract("meting_api") || "",
+		id: extract("id") || "",
 		server: extract("server") || "netease",
 		type: extract("type") || "playlist",
 	};

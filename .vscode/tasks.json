@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "TraceBlog: Dev",
+      "type": "process",
+      "command": "pnpm",
+      "args": ["dev"],
+      "options": {
+        "cwd": "${workspaceFolder:TraceBlog}"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "trace-blog-dev",
+        "pattern": {
+          "regexp": "^(.*)$",
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "astro|Astro|Local",
+          "endsPattern": "Local|ready"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "trace-blog",
+        "clear": true
+      }
+    },
+    {
+      "label": "TraceBlog: Build",
+      "type": "process",
+      "command": "pnpm",
+      "args": ["build"],
+      "options": {
+        "cwd": "${workspaceFolder:TraceBlog}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "TraceBlog: Preview",
+      "type": "process",
+      "command": "pnpm",
+      "args": ["preview"],
+      "options": {
+        "cwd": "${workspaceFolder:TraceBlog}"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "trace-blog"
+      }
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import { extractBlock, matchInBlock } from "../scripts/read-site-config.mjs";
 // 上游默认配置的缩影：字段齐全，块顺序固定
 const DEFAULTS = `
 export const siteConfig: SiteConfig = {
-	navbarTitle: { mode: "text-icon", text: "MizukiUI" },
+	navbarTitle: { mode: "text-icon", text: "TraceBlogTest" },
 	font: { mode: "custom" },
 	bangumi: { userId: "your-bangumi-id", fetchOnDev: false },
 	bilibili: { vmid: "", coverMirror: "", useWebp: true },

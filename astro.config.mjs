@@ -11,7 +11,6 @@ import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import { pluginLanguageLogo } from "ec-lang-logo";
 import "katex/dist/contrib/mhchem.mjs";
-import { oddmisc } from "oddmisc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCodeGroup from "rehype-code-group";
 import rehypeComponents from "rehype-components";
@@ -50,6 +49,20 @@ import { remarkWikiLink } from "./src/plugins/remark-wiki-link.mjs";
 import { resolveFontMode } from "./src/utils/fontMode.ts";
 
 const customFontsEnabled = resolveFontMode(siteConfig) === "custom";
+const featurePageRoutes = {
+	"/ai-tools/": siteConfig.featurePages.aiTools,
+	"/albums/": siteConfig.featurePages.albums,
+	"/anime/": siteConfig.featurePages.anime,
+	"/devices/": siteConfig.featurePages.devices,
+	"/diary/": siteConfig.featurePages.diary,
+	"/friends/": siteConfig.featurePages.friends,
+	"/projects/": siteConfig.featurePages.projects,
+	"/skills/": siteConfig.featurePages.skills,
+	"/timeline/": siteConfig.featurePages.timeline,
+};
+const disabledFeaturePagePrefixes = Object.entries(featurePageRoutes)
+	.filter(([, enabled]) => !enabled)
+	.map(([route]) => route);
 
 // https://astro.build/config
 export default defineConfig({
@@ -117,11 +130,6 @@ export default defineConfig({
 	},
 
 	integrations: [
-		oddmisc({
-			umami: {
-				shareUrl: false,
-			},
-		}),
 		swup({
 			theme: false,
 			animationClass: "transition-swup-",
@@ -205,7 +213,14 @@ export default defineConfig({
 		svelte({
 			preprocess: vitePreprocess(),
 		}),
-		sitemap(),
+		sitemap({
+			filter: (page) => {
+				const pathname = new URL(page).pathname;
+				return !disabledFeaturePagePrefixes.some((route) =>
+					pathname.startsWith(route),
+				);
+			},
+		}),
 		mdx(),
 	],
 	markdown: {

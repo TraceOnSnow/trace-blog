@@ -121,22 +121,9 @@ describe("Music player media loading boundary", () => {
 		}
 	});
 
-	it("ships non-zero metadata for built-in songs without constraining external playlists", () => {
-		const literalPlaylist = constantsSource.match(
-			/export const LOCAL_PLAYLIST:\s*Song\[\]\s*=\s*\[([\s\S]*?)\n\];/,
-		);
-		if (!literalPlaylist) {
-			assert.match(
-				constantsSource,
-				/export const LOCAL_PLAYLIST:\s*Song\[\]\s*=\s*[A-Za-z_$][\w$]*/,
-			);
-			return;
-		}
-
-		const durations = [
-			...literalPlaylist[1].matchAll(/duration:\s*(\d+)/g),
-		].map((match) => Number(match[1]));
-		assert.ok(durations.length > 0);
-		assert.ok(durations.every((duration) => duration > 0));
+	it("keeps the built-in playlist empty until real music is configured", () => {
+		assert.match(constantsSource, /LOCAL_PLAYLIST:\s*Song\[\]\s*=\s*\[\]/);
+		assert.match(constantsSource, /DEFAULT_METING_API\s*=\s*""/);
+		assert.match(constantsSource, /DEFAULT_METING_ID\s*=\s*""/);
 	});
 });

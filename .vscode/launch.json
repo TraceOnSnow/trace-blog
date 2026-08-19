@@ -1,0 +1,28 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Trace Blog: Dev",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "pnpm dev",
+			"cwd": "${workspaceFolder}",
+			"env": {
+				"ENABLE_CONTENT_SYNC": "false"
+			},
+			"serverReadyAction": {
+				"action": "startDebugging",
+				"name": "Trace Blog: Browser",
+				"pattern": "(http://localhost:\\d+)",
+				"uriFormat": "%s/"
+			}
+		},
+		{
+			"name": "Trace Blog: Browser",
+			"type": "pwa-chrome",
+			"request": "launch",
+			"url": "http://localhost:3000/",
+			"webRoot": "${workspaceFolder}"
+		}
+	]
+}

@@ -1,21 +1,19 @@
 @reference "tailwindcss";
 
 .custom-md {
+  color: var(--tw-prose-body);
+
+  :is(p, li, dd, td) {
+    color: inherit;
+  }
+
   h1 {
     @apply text-3xl;
   }
 
   :is(h1, h2, h3, h4, h5, h6) {
     .anchor {
-      @apply transition -m-0.5 ms-[0.2ch] p-0.5 select-none opacity-0 no-underline;
-
-      .anchor-icon {
-        @apply mx-[0.45ch];
-      }
-    }
-
-    &:hover .anchor {
-      @apply opacity-100;
+      @apply hidden;
     }
   }
 
