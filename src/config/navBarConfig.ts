@@ -140,7 +140,7 @@ export const navBarConfig: NavBarConfig = {
 		},
 		{
 			name: "主站",
-			url: "https://treesonsnow.com",
+			url: "https://traceonsnow.com",
 			external: true,
 			icon: "material-symbols:home",
 		},

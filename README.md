@@ -3,8 +3,8 @@
 Zhiheng Wang 的个人博客，基于 [Astro](https://astro.build/) 和
 [Mizuki](https://github.com/LyraVoid/Mizuki) 构建。
 
-- 博客域名：<https://blog.treesonsnow.com>
-- 个人主页：<https://treesonsnow.com>
+- 博客域名：<https://blog.traceonsnow.com>
+- 个人主页：<https://traceonsnow.com>
 - GitHub：<https://github.com/TraceOnSnow>
 
 博客主要通过 `src/content/posts/` 下的 Markdown / MDX 文件维护。项目展示数据位于

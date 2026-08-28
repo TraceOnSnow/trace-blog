@@ -9,6 +9,6 @@ Trace Blog 用来记录技术文章、项目介绍、开发过程与长期思考
 - [GitHub](https://github.com/TraceOnSnow)
 - [LinkedIn](https://www.linkedin.com/in/zhihengwang02/)
 - [Email](mailto:zhihengw02@outlook.com)
-- [个人主页](https://treesonsnow.com)
+- [个人主页](https://traceonsnow.com)
 
 本站基于 [Astro](https://astro.build/) 与开源主题 [Mizuki](https://github.com/LyraVoid/Mizuki) 构建。

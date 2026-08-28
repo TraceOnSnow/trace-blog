@@ -6,7 +6,7 @@ const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 export const siteConfig: SiteConfig = {
 	title: "Trace Blog",
 	subtitle: "记录软件工程、AI / Agent、游戏开发、项目实践与长期思考",
-	siteURL: "https://blog.treesonsnow.com/",
+	siteURL: "https://blog.traceonsnow.com/",
 	keywords: [
 		"Trace Blog",
 		"Zhiheng Wang",

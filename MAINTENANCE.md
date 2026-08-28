@@ -76,8 +76,8 @@ Markdown 中使用 `![说明](./cover.png)`。需要跨文章复用的图片放�
 - favicon 文件：`public/favicon/`
 - 页脚自定义内容：`src/config/footerConfig.ts`
 
-博客域名是 `https://blog.treesonsnow.com/`，主站链接是
-`https://treesonsnow.com`。修改域名时同时检查：
+博客域名是 `https://blog.traceonsnow.com/`，主站链接是
+`https://traceonsnow.com`。修改域名时同时检查：
 
 - `src/config/siteConfig.ts` 的 `siteURL`
 - `public/CNAME`
@@ -103,7 +103,7 @@ Markdown 中使用 `![说明](./cover.png)`。需要跨文章复用的图片放�
 - `showImage`：没有真实封面时设为 `false`。
 
 编辑后访问 `/projects/` 检查筛选、状态和链接。个人主页可以直接链接到
-`https://blog.treesonsnow.com/projects/`。
+`https://blog.traceonsnow.com/projects/`。
 
 ## Category 和 Tag
 
@@ -159,7 +159,7 @@ ENABLE_CONTENT_SYNC=false pnpm preview
 
 1. 在 Vercel 中导入 GitHub 仓库 `TraceOnSnow/trace-blog`。
 2. Production Branch 选择 `master`。
-3. 确认 Vercel 项目域名为 `blog.treesonsnow.com`，并按 Vercel 提示配置 DNS。
+3. 确认 Vercel 项目域名为 `blog.traceonsnow.com`，并按 Vercel 提示配置 DNS。
 4. 推送到 `master` 后，Vercel 会自动构建并部署。
 
 Vercel 的项目创建、域名绑定和 DNS 修改不由仓库自动完成。当前的
@@ -234,8 +234,8 @@ git merge upstream/main
 当前仓库已经完成 Vercel 静态构建配置，但还没有执行 Vercel 项目创建、域名绑定或 DNS
 修改。正式上线前需要本人确认：
 
-- 在 Vercel 中导入仓库并绑定 `blog.treesonsnow.com`。
-- `blog.treesonsnow.com` 的 DNS 记录指向 Vercel。
+- 在 Vercel 中导入仓库并绑定 `blog.traceonsnow.com`。
+- `blog.traceonsnow.com` 的 DNS 记录指向 Vercel。
 - 站点正式上线日期；如果以后启用站点运行天数统计，更新
   `src/config/siteConfig.ts` 的 `siteStartDate`。
 - 是否启用评论、Clarity 或其他访问统计，并提供自己的真实配置。

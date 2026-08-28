@@ -28,7 +28,7 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "Homepage",
 			icon: "material-symbols:home",
-			url: "https://treesonsnow.com",
+			url: "https://traceonsnow.com",
 		},
 	],
 };
