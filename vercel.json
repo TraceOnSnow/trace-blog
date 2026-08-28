@@ -1,7 +1,8 @@
 {
-	"buildCommand": "pnpm build",
+	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"buildCommand": "ENABLE_CONTENT_SYNC=false pnpm build",
 	"outputDirectory": "dist",
-	"installCommand": "pnpm install",
+	"installCommand": "pnpm install --frozen-lockfile",
 	"framework": "astro",
 	"headers": [
 		{

@@ -81,9 +81,11 @@ Markdown 中使用 `![说明](./cover.png)`。需要跨文章复用的图片放�
 
 - `src/config/siteConfig.ts` 的 `siteURL`
 - `public/CNAME`
-- DNS 和 GitHub Pages 自定义域名设置
+- Vercel 项目中的 Domains 设置
+- DNS 服务商中的域名记录
 
-仓库只保存站点侧配置，不会自动修改 DNS 或 GitHub Pages 设置。
+`public/CNAME` 只为手动 GitHub Pages 备用部署保留，Vercel 不依赖它。仓库只保存站点侧
+配置，不会自动修改 Vercel 项目、域名绑定或 DNS。
 
 ## 项目展示
 
@@ -145,11 +147,24 @@ ENABLE_CONTENT_SYNC=false pnpm preview
 
 ## 部署和域名
 
-`.github/workflows/deploy.yml` 在 `master` 分支更新时构建站点，并把 `dist/` 发布到
-`pages` 分支。工作流明确设置 `ENABLE_CONTENT_SYNC=false`。
+当前正式部署目标是 Vercel。仓库根目录的 `vercel.json` 已配置：
 
-`public/CNAME` 保存 `blog.treesonsnow.com`。仓库当前只包含部署配置；真正启用前仍需在
-GitHub Pages 和 DNS 服务商中完成对应设置。
+- Framework：Astro
+- Install Command：`pnpm install --frozen-lockfile`
+- Build Command：`ENABLE_CONTENT_SYNC=false pnpm build`
+- Output Directory：`dist`
+- Node.js：`20.x`，由 `package.json` 的 `engines` 指定
+
+首次部署步骤：
+
+1. 在 Vercel 中导入 GitHub 仓库 `TraceOnSnow/trace-blog`。
+2. Production Branch 选择 `master`。
+3. 确认 Vercel 项目域名为 `blog.treesonsnow.com`，并按 Vercel 提示配置 DNS。
+4. 推送到 `master` 后，Vercel 会自动构建并部署。
+
+Vercel 的项目创建、域名绑定和 DNS 修改不由仓库自动完成。当前的
+`.github/workflows/deploy.yml` 已改为仅手动触发，作为 GitHub Pages 备用部署，避免和
+Vercel 同时自动部署。
 
 ## 当前关闭的功能
 
@@ -216,9 +231,11 @@ git merge upstream/main
 
 ## 尚待真实环境确认
 
-当前仓库没有执行部署，也没有修改 GitHub Pages 或 DNS。正式上线前需要本人确认：
+当前仓库已经完成 Vercel 静态构建配置，但还没有执行 Vercel 项目创建、域名绑定或 DNS
+修改。正式上线前需要本人确认：
 
-- `blog.treesonsnow.com` 的 DNS 记录和 GitHub Pages 自定义域名。
+- 在 Vercel 中导入仓库并绑定 `blog.treesonsnow.com`。
+- `blog.treesonsnow.com` 的 DNS 记录指向 Vercel。
 - 站点正式上线日期；如果以后启用站点运行天数统计，更新
   `src/config/siteConfig.ts` 的 `siteStartDate`。
 - 是否启用评论、Clarity 或其他访问统计，并提供自己的真实配置。
